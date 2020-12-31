@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<head>
+    <title>Chris King's Photo Gallery</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+</head>
+    
+<body>
+
+<p class=title>December Highlights</p>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img class=photo src="Photos/Sloth.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img class=photo src="Photos/Zoe Gifts.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img class=photo src="Photos/Zoe Picture.jpg">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img class=photo src="Photos/Zoe in Homage Shirt.png">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img class=photo src="Photos/Paws and Pillow.jpg">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img class=photo src="Photos/Paws Selfie.jpg">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="Photos/Sloth.jpg" onclick="currentSlide(1)" alt="Sammy the Sloth courtesy of Zoë's Mimi.">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Photos/Zoe Gifts.jpg" onclick="currentSlide(2)" alt="Early Christmas Gifts from Zoë.">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Photos/Zoe Picture.jpg" onclick="currentSlide(3)" alt="One of my favorite pictures of us.">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Photos/Zoe in Homage Shirt.png" onclick="currentSlide(4)" alt="Zoë in her new Homage shirt from my Mom.">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Photos/Paws and Pillow.jpg" onclick="currentSlide(5)" alt="Paws with his new favorite pillow.">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="Photos/Paws Selfie.jpg" onclick="currentSlide(6)" alt="Thankful for my doggie.">
+    </div>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+</body>
+</html>
